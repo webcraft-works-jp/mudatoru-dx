@@ -914,10 +914,28 @@
         text-align: center;
       }
       .mid-cta-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
         margin-bottom: 38px;
         color: var(--ink);
         font-size: clamp(20px, 2.8vw, 28px);
         font-weight: 950;
+      }
+      .mid-cta-title::before,
+      .mid-cta-title::after {
+        content: "";
+        flex: 0 0 2px;
+        width: 2px;
+        height: 26px;
+        background: currentColor;
+      }
+      .mid-cta-title::before {
+        transform: rotate(-13deg);
+      }
+      .mid-cta-title::after {
+        transform: rotate(13deg);
       }
       .mid-cta-action {
         position: relative;
@@ -959,8 +977,10 @@
         text-decoration: none;
       }
       .mid-cta-btn span {
+        display: inline-block;
         font-size: 28px;
         line-height: 1;
+        transform: translateY(-8px);
       }
       .case-grid {
         display: grid;
@@ -1397,7 +1417,13 @@
           width: min(100% - 28px, 1100px);
         }
         .section {
-          padding: 48px 0;
+          padding: 36px 0 44px;
+        }
+        .solution-section {
+          padding-top: 0;
+        }
+        .solution-banner {
+          padding-top: 36px;
         }
         .header {
           height: 64px;
@@ -2253,9 +2279,7 @@
                   placeholder="現在お困りの業務や、改善したいことをご記入ください。"
                 ></textarea>
               </div>
-              <button class="btn" type="submit">
-                無料で業務改善診断を受ける
-              </button>
+              <button class="btn" type="submit">送信する</button>
               <p class="form-note">
                 送信することで<a href="privacy.html">プライバシーポリシー</a
                 >に同意したものとします。
