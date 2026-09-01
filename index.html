@@ -193,13 +193,13 @@
         background: var(--orange);
         color: #fff !important;
         padding: 12px 20px;
-        border-radius: 7px;
-        box-shadow: 0 7px 0 var(--orange-dark);
+        border-radius: 999px;
+        box-shadow: none;
         transition: 0.2s;
       }
       .header-cta:hover {
         transform: translateY(2px);
-        box-shadow: 0 5px 0 var(--orange-dark);
+        box-shadow: none;
       }
       .hero {
         position: relative;
@@ -1329,8 +1329,16 @@
         resize: vertical;
       }
       .form-wrap .btn {
-        width: 100%;
-        margin-top: 8px;
+        display: flex;
+        width: 72%;
+        margin: 8px auto 0;
+        border-radius: 999px;
+        font-size: 20px;
+        box-shadow: none;
+      }
+      .form-wrap .btn:hover {
+        transform: none;
+        box-shadow: none;
       }
       .form-note {
         text-align: center;
@@ -1689,6 +1697,795 @@
           transition: none !important;
         }
       }
+
+      /* ファーストビュー */
+      .hero {
+        position: relative;
+        padding: 118px 0 44px;
+        overflow: hidden;
+        background: #eef6ff;
+      }
+
+      .hero::before {
+        top: -190px;
+        left: -150px;
+        width: 430px;
+        height: 430px;
+        background: rgba(255, 255, 255, 0.48);
+      }
+
+      .hero-main {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(390px, 0.92fr);
+        gap: 38px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      .hero-heading {
+        position: relative;
+        padding-top: 54px;
+      }
+
+      .hero-price-bubble {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        padding: 6px 22px;
+        border-radius: 999px;
+        background: var(--orange);
+        color: #fff;
+        font-size: 23px;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .hero-price-bubble::after {
+        position: absolute;
+        bottom: -9px;
+        left: 30px;
+        width: 0;
+        height: 0;
+        border-top: 12px solid var(--orange);
+        border-right: 13px solid transparent;
+        content: "";
+      }
+
+      .hero h1 {
+        margin: 0;
+        color: var(--navy);
+        font-size: clamp(38px, 4.35vw, 59px);
+        font-style: italic;
+        font-weight: 900;
+        line-height: 1.17;
+        letter-spacing: -0.045em;
+      }
+
+      .hero h1 span {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 0.6em;
+        letter-spacing: -0.025em;
+      }
+
+      .hero h1 strong {
+        color: var(--orange);
+        font-size: 1.08em;
+      }
+
+      .hero-services {
+        margin: 22px 0 0;
+        padding: 12px 14px;
+        background: #fff;
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 1.6;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .hero-services i {
+        color: #7d89b6;
+        font-style: normal;
+      }
+
+      .hero-benefits {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 25px;
+      }
+
+      .hero-benefit {
+        display: flex;
+        min-height: 136px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 19px 10px 15px;
+        border-radius: 11px;
+        background: var(--blue);
+        color: #fff;
+        text-align: center;
+      }
+
+      .hero-benefit small {
+        min-height: 30px;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+
+      .hero-benefit b {
+        margin-top: 6px;
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .hero-benefit span {
+        color: var(--yellow);
+        font-size: 1.28em;
+      }
+
+      .hero-diagram {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) 98px minmax(0, 1.1fr);
+        gap: 7px;
+        align-items: center;
+        padding: 24px 18px;
+        border: 2px solid var(--blue);
+        border-radius: 20px;
+        background: #fff;
+      }
+
+      .hero-diagram-person {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        color: var(--blue);
+        text-align: center;
+      }
+
+      .hero-diagram-person picture {
+        display: block;
+        width: 100%;
+      }
+
+      .hero-diagram-person img {
+        display: block;
+        width: min(100%, 158px);
+        height: 158px;
+        margin: 0 auto;
+        object-fit: contain;
+      }
+
+      .hero-diagram-person span {
+        display: inline-block;
+        margin-top: -2px;
+        padding: 6px 15px;
+        border-radius: 999px;
+        background: var(--blue);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.2;
+      }
+
+      .hero-diagram-dx {
+        padding: 16px 8px 13px;
+        border-radius: 16px;
+        background: #c9d8f3;
+      }
+
+      .hero-diagram-dx small {
+        margin-top: 9px;
+        font-size: 9px;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .hero-diagram-arrows {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: stretch;
+        color: var(--blue);
+        text-align: center;
+      }
+
+      .hero-diagram-arrows b {
+        font-size: 11px;
+        line-height: 1.3;
+        white-space: nowrap;
+      }
+
+      .hero-diagram-arrows i {
+        display: block;
+        margin: -3px 0 12px;
+        font-size: 33px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .hero-diagram-arrows i:last-child {
+        margin: -3px 0 0;
+      }
+
+      .hero-contact {
+        position: relative;
+        z-index: 1;
+        margin-top: 28px;
+        padding: 16px 24px 20px;
+        border: 1px solid #d7deee;
+        border-top: 3px solid var(--orange);
+        border-radius: 12px;
+        background: #fff;
+        text-align: center;
+      }
+
+      .hero-contact > p {
+        margin: 0;
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .hero-contact-action {
+        position: relative;
+        width: min(540px, 100%);
+        margin: 17px auto 0;
+        padding-top: 7px;
+      }
+
+      .hero-contact-action > span {
+        position: absolute;
+        z-index: 1;
+        top: -7px;
+        left: 50%;
+        padding: 5px 21px;
+        border: 1px solid #e6b800;
+        border-radius: 999px;
+        background: #fffef0;
+        color: var(--navy);
+        font-size: 12px;
+        font-weight: 900;
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+
+      .hero-contact-action a {
+        display: flex;
+        min-height: 62px;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 17px 25px 13px;
+        border-radius: 999px;
+        background: var(--orange);
+        color: #fff;
+        font-size: 21px;
+        font-weight: 900;
+        text-decoration: none;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .hero-contact-action a:hover {
+        background: #e94d21;
+        transform: translateY(-2px);
+      }
+
+      .hero-contact-action a i {
+        position: relative;
+        top: -1px;
+        font-size: 24px;
+        font-style: normal;
+        line-height: 1;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          padding: 102px 0 36px;
+          background: #eef6ff;
+        }
+
+        .hero-main {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .hero-copy {
+          text-align: left;
+        }
+
+        .hero-heading {
+          max-width: 650px;
+          margin: 0 auto;
+        }
+
+        .hero-services,
+        .hero-benefits {
+          max-width: 650px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .hero-diagram {
+          width: min(620px, 100%);
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .hero {
+          padding: 82px 0 22px;
+          background: #eef6ff;
+        }
+
+        .hero::before {
+          top: -95px;
+          left: -130px;
+          width: 300px;
+          height: 300px;
+        }
+
+        .hero-main {
+          gap: 17px;
+        }
+
+        .hero-heading {
+          padding-top: 0;
+        }
+
+        .hero-price-bubble {
+          position: relative;
+          top: auto;
+          left: auto;
+          display: table;
+          min-height: 0;
+          margin: 0 12px 7px auto;
+          padding: 5px 15px;
+          font-size: 19px;
+        }
+
+        .hero-price-bubble::after {
+          bottom: -7px;
+          left: 20px;
+          border-top-width: 9px;
+          border-right-width: 10px;
+        }
+
+        .hero h1 {
+          font-size: clamp(32px, 9.5vw, 39px);
+          line-height: 1.16;
+          letter-spacing: -0.05em;
+        }
+
+        .hero h1 span {
+          font-size: 0.61em;
+        }
+
+        .hero-services {
+          margin-top: 17px;
+          padding: 9px 8px;
+          font-size: 11px;
+          line-height: 1.55;
+          white-space: normal;
+        }
+
+        .hero-benefits {
+          gap: 7px;
+          margin-top: 16px;
+        }
+
+        .hero-benefit {
+          min-height: 101px;
+          padding: 14px 4px 10px;
+          border-radius: 8px;
+        }
+
+        .hero-benefit small {
+          min-height: 25px;
+          font-size: 8px;
+          line-height: 1.35;
+        }
+
+        .hero-benefit b {
+          margin-top: 4px;
+          font-size: 11px;
+          line-height: 1.35;
+        }
+
+        .hero-benefit span {
+          font-size: 1.42em;
+        }
+
+        .hero-diagram {
+          grid-template-columns: minmax(0, 0.8fr) 58px minmax(0, 1.2fr);
+          gap: 3px;
+          width: 100%;
+          padding: 12px 7px;
+          border-width: 1.5px;
+          border-radius: 14px;
+        }
+
+        .hero-diagram-person img {
+          width: 100%;
+          height: 125px;
+        }
+
+        .hero-diagram-customer img {
+          height: 142px;
+        }
+
+        .hero-diagram-person span {
+          margin-top: -2px;
+          padding: 5px 10px;
+          font-size: 9px;
+        }
+
+        .hero-diagram-dx {
+          padding: 8px 4px 9px;
+          border-radius: 12px;
+        }
+
+        .hero-diagram-dx small {
+          margin-top: 7px;
+          font-size: 7px;
+          line-height: 1.35;
+        }
+
+        .hero-diagram-arrows b {
+          font-size: 8px;
+        }
+
+        .hero-diagram-arrows i {
+          margin: -2px 0 10px;
+          font-size: 23px;
+        }
+
+        .hero-diagram-arrows i:last-child {
+          margin-top: -2px;
+        }
+
+        .hero-contact {
+          margin-top: 15px;
+          padding: 15px 10px 17px;
+          border-radius: 10px;
+        }
+
+        .hero-contact > p {
+          font-size: 13px;
+        }
+
+        .hero-contact-action {
+          margin-top: 15px;
+        }
+
+        .hero-contact-action > span {
+          top: -6px;
+          padding: 4px 16px;
+          font-size: 10px;
+        }
+
+        .hero-contact-action a {
+          min-height: 56px;
+          gap: 11px;
+          padding: 16px 15px 12px;
+          font-size: 18px;
+        }
+
+        .hero-contact-action a i {
+          top: -2px;
+          font-size: 20px;
+        }
+      }
+
+      /* ファーストビューCTA：共通CTAと同じレイアウト */
+      .hero-contact {
+        width: min(760px, 100%);
+        margin: 30px auto 0;
+        padding: 20px 30px 25px;
+        border: 0;
+        border-radius: 0;
+        background: #eef6ff;
+      }
+
+      .hero-contact > p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 25px;
+      }
+
+      .hero-contact > p::before {
+        content: "＼";
+      }
+
+      .hero-contact > p::after {
+        content: "／";
+      }
+
+      .hero-contact-action {
+        width: min(680px, 100%);
+        margin-top: 35px;
+        padding-top: 0;
+      }
+
+      .hero-contact-action > span {
+        top: -20px;
+        padding: 7px 22px;
+        font-size: 13px;
+      }
+
+      .hero-contact-action a {
+        min-height: 82px;
+        padding: 21px 30px 17px;
+        font-size: 27px;
+      }
+
+      .hero-contact-action a i {
+        top: -1px;
+      }
+
+      @media (max-width: 620px) {
+        .hero-contact {
+          width: 100%;
+          margin-top: 15px;
+          padding: 16px 8px 17px;
+          border-radius: 10px;
+        }
+
+        .hero-contact > p {
+          gap: 5px;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+
+        .hero-contact-action {
+          margin-top: 27px;
+        }
+
+        .hero-contact-action > span {
+          top: -15px;
+          padding: 4px 16px;
+          font-size: 10px;
+        }
+
+        .hero-contact-action a {
+          min-height: 58px;
+          padding: 16px 12px 12px;
+          font-size: 18px;
+        }
+      }
+
+      .worries-section {
+        background: #fff;
+      }
+
+      .hero-diagram {
+        display: block;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+        background: #eef6ff;
+      }
+
+      .hero-main-visual {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+      }
+
+      @media (max-width: 620px) {
+        .hero-diagram {
+          padding: 0;
+        }
+
+        .hero-main-visual {
+          height: auto;
+          aspect-ratio: 3 / 2;
+        }
+      }
+
+      @media (min-width: 901px) {
+        .hero-copy {
+          position: relative;
+          z-index: 2;
+        }
+
+        .hero-main {
+          grid-template-columns: minmax(0, 1.38fr) minmax(360px, 0.62fr);
+        }
+
+        .hero h1 .hero-title-main {
+          position: relative;
+          width: calc(100% + 360px);
+          margin: 0;
+          font-size: clamp(42px, 4.3vw, 64px);
+          white-space: nowrap;
+        }
+
+        .hero-title-break {
+          display: none;
+        }
+
+        .hero-diagram {
+          transform: translate(-32px, 120px);
+        }
+      }
+
+      /* ファーストビューの3つの特徴 */
+      .hero-benefits {
+        margin-top: 45px;
+      }
+
+      .hero-benefit {
+        position: relative;
+        min-height: 142px;
+        padding: 39px 10px 16px;
+        background: var(--navy);
+        overflow: visible;
+      }
+
+      .hero-benefit .hero-benefit-icon {
+        position: absolute;
+        top: -29px;
+        left: 50%;
+        display: grid;
+        width: 58px;
+        height: 58px;
+        place-items: center;
+        margin: 0;
+        border: 2px solid var(--navy);
+        border-radius: 50%;
+        background: #fff;
+        color: var(--navy);
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1;
+        transform: translateX(-50%);
+      }
+
+      @media (max-width: 620px) {
+        .hero-benefits {
+          margin-top: 34px;
+        }
+
+        .hero-benefit {
+          min-height: 112px;
+          padding: 31px 4px 10px;
+        }
+
+        .hero-benefit .hero-benefit-icon {
+          top: -22px;
+          width: 44px;
+          height: 44px;
+          font-size: 15px;
+        }
+      }
+
+      /* ファーストビュー特徴カードの文字サイズ調整 */
+      .hero-benefit {
+        min-height: 158px;
+        padding: 44px 12px 18px;
+      }
+
+      .hero-benefit small {
+        min-height: 36px;
+        font-size: 13px;
+      }
+
+      .hero-benefit b {
+        margin-top: 8px;
+        font-size: 18px;
+      }
+
+      .hero-benefit b span {
+        font-size: 1.42em;
+      }
+
+      @media (max-width: 620px) {
+        .hero-benefit {
+          min-height: 122px;
+          padding: 34px 4px 11px;
+        }
+
+        .hero-benefit small {
+          min-height: 28px;
+          font-size: 9px;
+        }
+
+        .hero-benefit b {
+          margin-top: 5px;
+          font-size: 13px;
+        }
+      }
+
+      /* CTA共通ホバーアニメーション */
+      @media (hover: hover) and (pointer: fine) {
+        .header-cta,
+        .hero-contact-action a,
+        .mid-cta-btn,
+        .form-wrap .btn {
+          transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
+        }
+
+        .header-cta:hover,
+        .hero-contact-action a:hover,
+        .mid-cta-btn:hover,
+        .form-wrap .btn:hover {
+          transform: translateY(-4px);
+          filter: brightness(1.04);
+          box-shadow: none;
+        }
+      }
+
+      /* ファーストビュー特徴カードを正方形風に調整 */
+      @media (min-width: 621px) {
+        .hero-benefits {
+          grid-template-columns: repeat(3, 160px);
+          justify-content: center;
+          gap: 18px;
+        }
+
+        .hero-benefit {
+          width: 160px;
+          min-height: 0;
+          aspect-ratio: 1 / 1;
+        }
+      }
+
+      /* ファーストビュー対応業務帯のサイズ調整 */
+      .hero-services {
+        padding: 14px 16px;
+        font-size: 18px;
+      }
+
+      @media (max-width: 620px) {
+        .hero-services {
+          padding: 11px 8px;
+          font-size: 13px;
+        }
+      }
+
+      /* スマホ版ファーストビュー見出しの拡大 */
+      @media (max-width: 620px) {
+        .hero h1 > span:first-child {
+          font-size: clamp(27px, 7.5vw, 31px);
+        }
+
+        .hero h1 .hero-title-main {
+          margin: 0;
+          font-size: clamp(35px, 10vw, 40px);
+          line-height: 1.16;
+        }
+      }
+
+      /* スマホ版ファーストビュー画像の縮小 */
+      @media (max-width: 620px) {
+        .hero-diagram {
+          width: 76%;
+          margin-right: auto;
+          margin-left: auto;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1701,59 +2498,72 @@
         <nav class="nav" aria-label="メインナビゲーション">
           <a href="#service">対応業務</a><a href="#case">活用例</a
           ><a href="#price">料金</a><a href="#flow">導入の流れ</a
-          ><a class="header-cta" href="#contact">無料相談はこちら</a>
+          ><a class="header-cta" href="#contact">お問い合わせ</a>
         </nav>
       </div>
     </header>
 
     <main id="top">
       <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="hero-label">月額定額で、相談から実装まで</p>
-            <h1>
-              <span class="small">人を増やす前に、</span>今ある<span class="hot"
-                >仕事</span
-              >を<br />減らしませんか？
-            </h1>
-            <p class="hero-lead">
-              AI・IT・自動化で、資料作成・転記などのムダな作業時間を削減。専任エンジニアを採用しなくても、月額定額で業務改善をサポートします。
-            </p>
-            <div class="hero-cta-row">
-              <a class="btn" href="#contact">業務削減について無料相談</a>
-              <p class="hero-micro">30分のオンライン相談<br />相談だけでもOK</p>
-            </div>
-          </div>
-          <div
-            class="hero-visual"
-            aria-label="業務データを整理するDX担当者のイメージ"
-          >
-            <div class="dashboard">
-              <div class="dashboard-top"><i></i><i></i><i></i></div>
-              <div class="dashboard-body">
-                <div class="dash-card"><b></b><span></span></div>
-                <div class="dash-card"><b></b><span></span></div>
-                <div class="dash-card dash-card--wide">
-                  <b></b><span></span>
+        <div class="container">
+          <div class="hero-main">
+            <div class="hero-copy">
+              <div class="hero-heading">
+                <p class="hero-price-bubble">月額15万円〜</p>
+                <h1>
+                  <span>人を増やす前に、</span>
+                  <span class="hero-title-main"
+                    >今ある<strong>「仕事」</strong>を<br
+                      class="hero-title-break"
+                    />減らしませんか？</span
+                  >
+                </h1>
+              </div>
+
+              <p class="hero-services">
+                業務整理 <i>｜</i> AI活用 <i>｜</i> 業務自動化 <i>｜</i> など
+              </p>
+
+              <div class="hero-benefits">
+                <div class="hero-benefit">
+                  <span class="hero-benefit-icon" aria-hidden="true">¥</span>
+                  <small>専任人材の採用不要</small>
+                  <b>月額<br /><span>15万円〜</span></b>
+                </div>
+                <div class="hero-benefit">
+                  <span class="hero-benefit-icon" aria-hidden="true">↻</span>
+                  <small>業務改善を一括支援</small>
+                  <b>相談〜実装まで<br /><span>一気通貫</span></b>
+                </div>
+                <div class="hero-benefit">
+                  <span class="hero-benefit-icon" aria-hidden="true">DX</span>
+                  <small>業務とITの専門</small>
+                  <b>専属担当が<br /><span>伴走</span></b>
                 </div>
               </div>
             </div>
-            <div class="person">
-              <div class="person-head"></div>
-              <div class="person-body"></div>
-              <div class="person-arm"></div>
+            <div class="hero-diagram">
+              <img
+                class="hero-main-visual"
+                src="00_ファーストビュー_透過.png"
+                alt="パソコン作業に悩むビジネスパーソン"
+              />
             </div>
-            <div class="float-badge float-badge--one">
-              ムダな作業を<br /><b>見える化</b>
-            </div>
-            <div class="float-badge float-badge--two">
-              改善から<br /><b>実装まで</b>
+          </div>
+
+          <div class="hero-contact">
+            <p>業務改善の無料相談実施中！</p>
+            <div class="hero-contact-action">
+              <span>カンタン30秒</span>
+              <a href="#contact"
+                >お問い合わせはこちら <i aria-hidden="true">⌄</i></a
+              >
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--blue">
+      <section class="section section--blue worries-section">
         <div class="container">
           <div class="section-head">
             <h2 class="section-title worries-title">
