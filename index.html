@@ -9,6 +9,12 @@
     />
     <meta name="theme-color" content="#263290" />
     <title>ムダトルDX｜定額制 DX・業務改善支援</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
     <style>
       *,
       *::before,
@@ -46,6 +52,7 @@
           sans-serif;
         color: #20263f;
         background: #fff;
+        font-weight: 400;
         line-height: 1.8;
         overflow-x: hidden;
       }
@@ -111,7 +118,7 @@
       .section-title {
         font-size: clamp(28px, 4vw, 44px);
         line-height: 1.35;
-        font-weight: 950;
+        font-weight: 900;
         margin-top: 10px;
         letter-spacing: 0.02em;
       }
@@ -166,13 +173,13 @@
         display: block;
         font-size: 10px;
         color: var(--blue);
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: 0.12em;
         margin-bottom: 6px;
       }
       .brand-main {
         font-size: 24px;
-        font-weight: 950;
+        font-weight: 900;
         color: var(--navy);
         letter-spacing: -0.04em;
       }
@@ -184,7 +191,7 @@
         align-items: center;
         gap: 24px;
         font-size: 13px;
-        font-weight: 800;
+        font-weight: 700;
       }
       .nav a {
         text-decoration: none;
@@ -245,7 +252,7 @@
       }
       .hero h1 {
         font-size: clamp(38px, 5.2vw, 68px);
-        font-weight: 950;
+        font-weight: 900;
         line-height: 1.25;
         letter-spacing: -0.035em;
         color: #11172f;
@@ -285,7 +292,7 @@
         background: var(--orange);
         color: #fff;
         text-decoration: none;
-        font-weight: 950;
+        font-weight: 900;
         font-size: 17px;
         box-shadow:
           0 9px 0 var(--orange-dark),
@@ -364,7 +371,7 @@
         left: 65px;
         color: var(--yellow);
         font-size: 36px;
-        font-weight: 950;
+        font-weight: 900;
       }
       .person-arm {
         position: absolute;
@@ -446,7 +453,7 @@
         border: 4px solid var(--navy);
         border-radius: 12px;
         padding: 10px 14px;
-        font-weight: 950;
+        font-weight: 900;
         color: var(--navy);
         box-shadow: 8px 8px 0 var(--yellow);
       }
@@ -481,7 +488,7 @@
         background: var(--orange);
         color: #fff;
         font-size: 12px;
-        font-weight: 950;
+        font-weight: 900;
         padding: 6px 16px;
         transform: rotate(-2deg);
       }
@@ -494,7 +501,7 @@
         padding: 17px 8px 17px 42px;
         border-bottom: 1px dashed #b8c6e2;
         position: relative;
-        font-weight: 800;
+        font-weight: 700;
       }
       .pain-list li::before {
         content: "✓";
@@ -510,7 +517,7 @@
         color: var(--navy);
         border: 2px solid var(--navy);
         font-size: 18px;
-        font-weight: 950;
+        font-weight: 900;
         line-height: 1;
       }
 
@@ -531,7 +538,7 @@
         gap: 16px;
         margin-bottom: 17px;
         font-size: clamp(16px, 2vw, 23px);
-        font-weight: 950;
+        font-weight: 900;
       }
       .solution-reassurance::before,
       .solution-reassurance::after {
@@ -548,7 +555,7 @@
       }
       .solution-message {
         font-size: clamp(27px, 4vw, 46px);
-        font-weight: 950;
+        font-weight: 900;
         line-height: 1.4;
         letter-spacing: 0.01em;
       }
@@ -577,8 +584,8 @@
       }
       .feature-num {
         position: absolute;
-        left: 22px;
-        top: -24px;
+        top: 12px;
+        left: 12px;
         width: 50px;
         height: 50px;
         display: grid;
@@ -587,7 +594,7 @@
         border: 3px solid var(--navy);
         border-radius: 50%;
         font-size: 22px;
-        font-weight: 950;
+        font-weight: 900;
         color: var(--navy);
       }
       .feature-icon {
@@ -705,7 +712,7 @@
         display: block;
         margin-top: 10px;
         color: var(--navy);
-        font-weight: 800;
+        font-weight: 700;
       }
       .about-exchange {
         display: grid;
@@ -753,7 +760,7 @@
         text-align: center;
         color: var(--navy);
         font-size: clamp(18px, 2.5vw, 25px);
-        font-weight: 950;
+        font-weight: 900;
       }
       .about-diagram-punch span {
         background: linear-gradient(transparent 58%, var(--yellow) 0);
@@ -786,11 +793,12 @@
       }
       .strength-no {
         font-size: 50px;
-        font-weight: 950;
+        font-weight: 900;
         font-style: italic;
         color: var(--navy);
         text-align: center;
         border-right: 3px solid var(--yellow);
+        text-indent: -18px;
       }
       .strength h3 {
         font-size: 21px;
@@ -890,8 +898,8 @@
       }
       .service-card {
         background: #fff;
-        border-top: 7px solid var(--yellow);
-        border-radius: 10px;
+        border: 1px solid #cfdaee;
+        border-radius: 12px;
         padding: 25px 20px;
         color: var(--ink);
         min-height: 210px;
@@ -921,7 +929,7 @@
         margin-bottom: 38px;
         color: var(--ink);
         font-size: clamp(20px, 2.8vw, 28px);
-        font-weight: 950;
+        font-weight: 900;
       }
       .mid-cta-title::before,
       .mid-cta-title::after {
@@ -973,7 +981,7 @@
         background: var(--orange);
         color: #fff;
         font-size: clamp(18px, 2.5vw, 25px);
-        font-weight: 950;
+        font-weight: 900;
         text-decoration: none;
       }
       .mid-cta-btn span {
@@ -1020,7 +1028,7 @@
         padding: 15px 10px;
         text-align: center;
         font-size: 13px;
-        font-weight: 800;
+        font-weight: 700;
       }
       .ba.after {
         background: var(--yellow-soft);
@@ -1029,12 +1037,12 @@
       .arr {
         color: var(--orange);
         font-size: 22px;
-        font-weight: 950;
+        font-weight: 900;
       }
       .impact {
         font-size: 26px !important;
         color: var(--orange);
-        font-weight: 950 !important;
+        font-weight: 900 !important;
       }
       .work-tabs {
         display: flex;
@@ -1218,7 +1226,7 @@
       .faq details {
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
       }
       .faq summary {
@@ -1353,7 +1361,7 @@
         background: var(--yellow-soft);
         border: 1px solid #d9d100;
         color: var(--navy);
-        font-weight: 800;
+        font-weight: 700;
         font-size: 13px;
         text-align: center;
       }
@@ -1370,7 +1378,7 @@
       .footer-brand {
         color: #fff;
         font-size: 22px;
-        font-weight: 950;
+        font-weight: 900;
       }
       .footer a {
         font-size: 12px;
@@ -1821,7 +1829,7 @@
       .hero-benefit small {
         min-height: 30px;
         font-size: 11px;
-        font-weight: 800;
+        font-weight: 700;
         line-height: 1.35;
       }
 
@@ -2356,7 +2364,7 @@
         background: #fff;
         color: var(--navy);
         font-size: 20px;
-        font-weight: 950;
+        font-weight: 900;
         line-height: 1;
         transform: translateX(-50%);
       }
@@ -2506,7 +2514,7 @@
         background: var(--orange);
         color: #fff;
         font-size: 20px;
-        font-weight: 950;
+        font-weight: 900;
         line-height: 1.25;
         text-align: center;
       }
@@ -2550,6 +2558,17 @@
           right: 0;
         }
       }
+
+      /* 特徴カード上部テキストの拡大 */
+      .hero-benefit small {
+        font-size: 15px;
+      }
+
+      @media (max-width: 620px) {
+        .hero-benefit small {
+          font-size: 10px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2573,7 +2592,7 @@
           <div class="hero-main">
             <div class="hero-copy">
               <div class="hero-heading">
-                <p class="hero-price-bubble">月額15万円〜</p>
+                <p class="hero-price-bubble">1日3333円〜</p>
                 <h1>
                   <span>人を増やす前に、</span>
                   <span class="hero-title-main"
