@@ -2325,7 +2325,7 @@
         }
 
         .hero-diagram {
-          transform: translate(-32px, 120px);
+          transform: translate(-64px, 120px);
         }
       }
 
@@ -2486,6 +2486,70 @@
           margin-left: auto;
         }
       }
+
+      /* ファーストビューの悩み吹き出し */
+      .hero-diagram {
+        position: relative;
+      }
+
+      .hero-workload-bubble {
+        position: absolute;
+        z-index: 2;
+        top: 1%;
+        right: 1%;
+        display: grid;
+        width: 108px;
+        height: 108px;
+        place-items: center;
+        margin: 0;
+        border-radius: 50%;
+        background: var(--orange);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 950;
+        line-height: 1.25;
+        text-align: center;
+      }
+
+      .hero-workload-bubble::after {
+        position: absolute;
+        bottom: 3px;
+        left: 3px;
+        width: 0;
+        height: 0;
+        border-top: 24px solid var(--orange);
+        border-right: 17px solid transparent;
+        content: "";
+        transform: rotate(14deg);
+      }
+
+      @media (max-width: 620px) {
+        .hero-workload-bubble {
+          top: -2%;
+          right: -5%;
+          width: 72px;
+          height: 72px;
+          font-size: 13px;
+        }
+
+        .hero-workload-bubble::after {
+          bottom: 1px;
+          left: 1px;
+          border-top-width: 17px;
+          border-right-width: 12px;
+        }
+      }
+
+      /* スマホ版吹き出しの見切れ防止 */
+      @media (max-width: 620px) {
+        .hero-diagram {
+          overflow: visible;
+        }
+
+        .hero-workload-bubble {
+          right: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2527,7 +2591,7 @@
               <div class="hero-benefits">
                 <div class="hero-benefit">
                   <span class="hero-benefit-icon" aria-hidden="true">¥</span>
-                  <small>専任人材の採用不要</small>
+                  <small>IT人材の採用不要</small>
                   <b>月額<br /><span>15万円〜</span></b>
                 </div>
                 <div class="hero-benefit">
@@ -2548,6 +2612,7 @@
                 src="00_ファーストビュー_透過.png"
                 alt="パソコン作業に悩むビジネスパーソン"
               />
+              <p class="hero-workload-bubble">仕事が<br />多い…</p>
             </div>
           </div>
 
