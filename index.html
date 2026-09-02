@@ -811,8 +811,8 @@
       }
       .profile {
         display: grid;
-        grid-template-columns: 270px 1fr;
-        gap: 45px;
+        grid-template-columns: 180px 1fr;
+        gap: 32px;
         max-width: 900px;
         margin: auto;
         background: #fff;
@@ -822,43 +822,18 @@
         box-shadow: none;
       }
       .profile-portrait {
-        min-height: 300px;
+        width: 100%;
+        max-width: 180px;
+        aspect-ratio: 3 / 4;
         border-radius: 12px;
-        background: linear-gradient(155deg, var(--navy), #5260c2);
-        display: grid;
-        place-items: center;
-        color: #fff;
-        text-align: center;
-        position: relative;
         overflow: hidden;
+        justify-self: center;
       }
-      .profile-portrait::before {
-        content: "";
-        width: 105px;
-        height: 105px;
-        border-radius: 50%;
-        background: #fff;
-        opacity: 0.92;
-        position: absolute;
-        top: 55px;
-      }
-      .profile-portrait::after {
-        content: "";
-        width: 190px;
-        height: 150px;
-        border-radius: 100px 100px 0 0;
-        background: #fff;
-        opacity: 0.92;
-        position: absolute;
-        bottom: 0;
-      }
-      .profile-portrait span {
-        position: absolute;
-        z-index: 1;
-        bottom: 18px;
-        font-size: 12px;
-        font-weight: 900;
-        color: var(--navy);
+      .profile-portrait img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       .profile-copy h3 {
         font-size: 26px;
@@ -893,7 +868,7 @@
       }
       .service-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 18px;
       }
       .service-card {
@@ -964,10 +939,14 @@
         border: 1px solid #e6c700;
         border-radius: 999px;
         background: #fffce8;
-        color: var(--ink);
+        color: #111;
         font-size: 13px;
         font-weight: 900;
         transform: translateX(-50%);
+      }
+
+      .campaign-highlight {
+        color: var(--orange);
       }
 
       .mid-cta-btn {
@@ -1161,11 +1140,49 @@
       #price .section-head {
         margin-bottom: 30px;
       }
+      .price-campaign {
+        display: table;
+        margin: -12px auto 22px;
+        padding: 9px 22px;
+        border-radius: 999px;
+        background: var(--orange);
+        color: #fff;
+        font-size: clamp(14px, 2.2vw, 17px);
+        font-weight: 900;
+        line-height: 1.4;
+      }
+      .initial-fee-price {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        white-space: nowrap;
+      }
+      .initial-fee-price del {
+        color: #7b849f;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .initial-fee-price strong {
+        color: var(--orange);
+        font-size: 18px;
+      }
       .price-common-note {
         width: min(884px, 100%);
-        margin: 14px auto 0;
+        margin: 10px auto 0;
         font-size: 11px;
         line-height: 1.7;
+      }
+      .price-common-info {
+        display: grid;
+        width: min(884px, 100%);
+        grid-template-columns: 1fr;
+        gap: 10px 24px;
+        margin: 20px auto 0;
+        padding: 0;
+        color: var(--navy);
+        font-size: 14px;
+        font-weight: 700;
+        list-style-position: inside;
       }
       .flow {
         display: grid;
@@ -1425,7 +1442,7 @@
           display: none;
         }
         .profile {
-          grid-template-columns: 220px 1fr;
+          grid-template-columns: 180px 1fr;
         }
       }
       @media (max-width: 620px) {
@@ -1671,7 +1688,7 @@
           padding: 20px;
         }
         .profile-portrait {
-          min-height: 240px;
+          min-height: 0;
         }
         .work-row {
           grid-template-columns: 1fr 78px;
@@ -1683,6 +1700,11 @@
         }
         .price-card {
           padding: 25px 20px 22px;
+        }
+        .price-common-info {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          padding: 0 4px;
         }
         .price-main strong {
           font-size: 38px;
@@ -1727,7 +1749,7 @@
         z-index: 1;
         display: grid;
         grid-template-columns: minmax(0, 1.08fr) minmax(390px, 0.92fr);
-        gap: 38px;
+        gap: 32px;
         align-items: center;
       }
 
@@ -1742,8 +1764,8 @@
 
       .hero-price-bubble {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 12px;
+        left: calc(30% + 52px);
         display: inline-flex;
         min-height: 44px;
         align-items: center;
@@ -1964,7 +1986,7 @@
         border: 1px solid #e6b800;
         border-radius: 999px;
         background: #fffef0;
-        color: var(--navy);
+        color: #111;
         font-size: 12px;
         font-weight: 900;
         transform: translateX(-50%);
@@ -2058,7 +2080,7 @@
 
         .hero-price-bubble {
           position: relative;
-          top: auto;
+          top: 24px;
           left: auto;
           display: table;
           min-height: 0;
@@ -2604,14 +2626,14 @@
               </div>
 
               <p class="hero-services">
-                業務整理 <i>｜</i> AI活用 <i>｜</i> 業務自動化 <i>｜</i> など
+                業務整理 <i>｜</i> AI活用 <i>｜</i> システム化 <i>｜</i> 業務自動化 <i>｜</i> など
               </p>
 
               <div class="hero-benefits">
                 <div class="hero-benefit">
                   <span class="hero-benefit-icon" aria-hidden="true">¥</span>
                   <small>IT人材の採用不要</small>
-                  <b>月額<br /><span>15万円〜</span></b>
+                  <b>月額<br /><span>10万円〜</span></b>
                 </div>
                 <div class="hero-benefit">
                   <span class="hero-benefit-icon" aria-hidden="true">↻</span>
@@ -2638,7 +2660,10 @@
           <div class="hero-contact">
             <p>業務改善の無料相談実施中！</p>
             <div class="hero-contact-action">
-              <span>カンタン30秒</span>
+              <span
+                ><span>先着3社限定！</span
+                ><strong class="campaign-highlight">初期費用50%OFF</strong></span
+              >
               <a href="#contact"
                 >お問い合わせはこちら <i aria-hidden="true">⌄</i></a
               >
@@ -2815,12 +2840,8 @@
             <h2 class="section-title">担当者プロフィール</h2>
           </div>
           <div class="profile">
-            <div
-              class="profile-portrait"
-              role="img"
-              aria-label="担当者イメージ"
-            >
-              <span>YOUR DX PARTNER</span>
+            <div class="profile-portrait">
+              <img src="04_担当者.png" alt="担当者" />
             </div>
             <div class="profile-copy">
               <span class="tag">応用情報技術者</span
@@ -2848,13 +2869,8 @@
               <p>議事録要約・メール作成・社内FAQ・マニュアル検索など</p>
             </article>
             <article class="service-card">
-              <div class="icon">📊</div>
-              <h3>Excel・シート改善</h3>
-              <p>転記・集計・見積管理・レポート作成など</p>
-            </article>
-            <article class="service-card">
               <div class="icon">🔁</div>
-              <h3>業務自動化</h3>
+              <h3>システム化・業務自動化</h3>
               <p>フォーム連携・メール送信・通知・定期集計など</p>
             </article>
             <article class="service-card">
@@ -2870,7 +2886,10 @@
         <div class="container">
           <p class="mid-cta-title">業務改善の無料相談実施中！</p>
           <div class="mid-cta-action">
-            <p class="mid-cta-badge">カンタン30秒</p>
+            <p class="mid-cta-badge">
+              <span>先着3社限定！</span
+              ><strong class="campaign-highlight">初期費用50%OFF</strong>
+            </p>
 
             <a class="mid-cta-btn" href="#contact">
               お問い合わせはこちら <span aria-hidden="true">⌄</span>
@@ -2912,15 +2931,15 @@
               </div>
             </article>
             <article class="case">
-              <span class="case-label">月次集計</span>
-              <h3>複数ExcelからGAS等で自動集計</h3>
+              <span class="case-label">見積書作成</span>
+              <h3>顧客情報から見積書を自動作成</h3>
               <div class="before-after">
                 <div class="ba">
-                  手動集計<br /><span class="impact">5h</span>/月
+                  手入力<br /><span class="impact">5h</span>/月
                 </div>
                 <span class="arr">→</span>
                 <div class="ba after">
-                  自動集計<br /><span class="impact">30分</span>/月
+                  自動作成<br /><span class="impact">30分</span>/月
                 </div>
               </div>
             </article>
@@ -2936,11 +2955,9 @@
           <div class="work-tabs" role="tablist">
             <button class="work-tab active" data-panel="p1" role="tab">
               業務整理・改善</button
-            ><button class="work-tab" data-panel="p2" role="tab">
-              Excel・シート</button
             ><button class="work-tab" data-panel="p3" role="tab">AI活用</button
             ><button class="work-tab" data-panel="p4" role="tab">
-              自動化・GAS
+              業務自動化
             </button>
           </div>
           <div id="p1" class="work-panel active">
@@ -2949,14 +2966,10 @@
             <div class="work-row"><span>改善案作成</span><b>2〜3h</b></div>
             <div class="work-row"><span>要件整理</span><b>2〜4h</b></div>
           </div>
-          <div id="p2" class="work-panel">
-            <div class="work-row"><span>集計自動化</span><b>2〜5h</b></div>
-            <div class="work-row"><span>転記自動化</span><b>2〜5h</b></div>
-            <div class="work-row"><span>レポート改善</span><b>2〜4h</b></div>
-          </div>
+
           <div id="p3" class="work-panel">
             <div class="work-row">
-              <span>ChatGPT業務活用設計</span><b>1〜3h</b>
+              <span>AI（ChatGPTなど）業務活用設計</span><b>1〜3h</b>
             </div>
             <div class="work-row"><span>NotebookLM導入</span><b>2〜4h</b></div>
             <div class="work-row">
@@ -2966,11 +2979,11 @@
           </div>
           <div id="p4" class="work-panel">
             <div class="work-row">
-              <span>フォーム→シート連携</span><b>1〜3h</b>
+              <span>問合せ・申請内容の自動記録</span><b>1〜3h</b>
             </div>
             <div class="work-row"><span>メール自動送信</span><b>2〜4h</b></div>
             <div class="work-row"><span>通知自動化</span><b>2〜4h</b></div>
-            <div class="work-row"><span>PDF自動生成</span><b>3〜6h</b></div>
+            <div class="work-row"><span>見積書・報告書の生成</span><b>3〜6h</b></div>
           </div>
           <p class="note" style="text-align: center; margin-top: 16px">
             ※作業時間は目安です。業務内容・既存環境・要件により変動します。
@@ -2983,26 +2996,41 @@
           <div class="section-head">
             <h2 class="section-title">料金プラン</h2>
           </div>
+          <p class="price-campaign">先着3社限定｜初期費用50%OFF</p>
           <div class="price-grid">
             <div class="price-card">
-              <span class="price-ribbon">まずは低コストで始めたい方に</span>
               <h3>ライトプラン</h3>
-              <p class="price-main">月額 <strong>150,000</strong> 円</p>
+              <span class="price-ribbon">まずは低コストで始めたい方に</span>
+              <p class="price-main">月額 <strong>100,000</strong> 円</p>
               <div class="price-spec">
                 <div><span>◷ 稼働時間</span><b>20時間 / 月</b></div>
-                <div><span>◈ 初期費用</span><b>100,000円</b></div>
+                <div>
+                  <span>◈ 初期費用</span
+                  ><b class="initial-fee-price"
+                    ><del>100,000円</del><span>→</span><strong>50,000円</strong></b
+                  >
+                </div>
               </div>
             </div>
             <div class="price-card">
-              <span class="price-ribbon">まずは小さな改善から</span>
               <h3>スタンダードプラン</h3>
+              <span class="price-ribbon">まずは小さな改善から</span>
               <p class="price-main">月額 <strong>150,000</strong> 円</p>
               <div class="price-spec">
-                <div><span>◷ 稼働時間</span><b>20時間 / 月</b></div>
-                <div><span>◈ 初期費用</span><b>100,000円</b></div>
+                <div><span>◷ 稼働時間</span><b>30時間 / 月</b></div>
+                <div>
+                  <span>◈ 初期費用</span
+                  ><b class="initial-fee-price"
+                    ><del>100,000円</del><span>→</span><strong>50,000円</strong></b
+                  >
+                </div>
               </div>
             </div>
           </div>
+          <ul class="price-common-info">
+            <li>・最低契約期間は2ヶ月〜</li>
+            <li>・月2回のMTGも無料で実施</li>
+          </ul>
           <p class="note price-common-note">
             ※大規模システム開発は別途お見積もり<br />※緊急障害対応・インフラ保守は対象外
           </p>
@@ -3013,7 +3041,10 @@
         <div class="container">
           <p class="mid-cta-title">業務改善の無料相談実施中！</p>
           <div class="mid-cta-action">
-            <p class="mid-cta-badge">カンタン30秒</p>
+            <p class="mid-cta-badge">
+              <span>先着3社限定！</span
+              ><strong class="campaign-highlight">初期費用50%OFF</strong>
+            </p>
 
             <a class="mid-cta-btn" href="#contact">
               お問い合わせはこちら <span aria-hidden="true">⌄</span>
