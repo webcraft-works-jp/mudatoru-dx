@@ -1,2 +1,391 @@
-<!DOCTYPE html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>プライバシーポリシー｜ムダトルDX</title><style>*{box-sizing:border-box}body{margin:0;padding:40px 20px;background:#e9f4ff;color:#20263f;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.8}.wrap{max-width:850px;margin:auto;background:#fff;padding:50px;border-radius:14px;box-shadow:0 18px 44px rgba(38,50,144,.12);border-top:8px solid #263290}h1{font-size:28px;color:#263290;border-bottom:3px solid #fff500;padding-bottom:14px}h2{font-size:19px;color:#263290;margin-top:32px;border-left:6px solid #ff5a1f;padding-left:12px}p,li{font-size:14px}a{color:#1e53b5}.back{display:inline-block;margin-top:30px;font-weight:bold}@media(max-width:600px){.wrap{padding:28px 20px}h1{font-size:23px}}</style></head><body><main class="wrap"><h1>プライバシーポリシー</h1><p>ムダトルDX（以下「当サービス」）は、お客様の個人情報の保護について、以下のとおりプライバシーポリシーを定めます。</p><h2>1. 個人情報の取得</h2><p>当サービスは、お問い合わせフォーム等を通じて、氏名、会社名、電話番号、メールアドレス、ご相談内容などの個人情報を取得することがあります。</p><h2>2. 利用目的</h2><ul><li>お問い合わせへの回答およびご連絡</li><li>サービスのご案内、提案、契約および提供</li><li>サービス品質の改善</li></ul><h2>3. 第三者提供</h2><p>法令に基づく場合を除き、ご本人の同意なく個人情報を第三者へ提供しません。</p><h2>4. 安全管理</h2><p>個人情報の漏えい、紛失、改ざん等を防止するため、適切な安全管理措置を講じます。</p><h2>5. 開示・訂正・削除</h2><p>ご本人から個人情報の開示、訂正、削除等のご請求があった場合は、本人確認のうえ適切に対応します。</p><h2>6. お問い合わせ</h2><p>本ポリシーに関するお問い合わせは、当サイトのお問い合わせフォームよりお願いいたします。</p><a class="back" href="index.html">← トップページへ戻る</a></main></body></html>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ムダトルDXにおける個人情報の取り扱いについてご案内します。"
+    />
+    <title>プライバシーポリシー｜ムダトルDX</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      :root {
+        --navy: #263290;
+        --blue: #1e53b5;
+        --orange: #ff5a1f;
+        --ink: #20263f;
+        --muted: #5e657b;
+        --line: #dbe2f1;
+        --sky: #e9f4ff;
+      }
+      body {
+        margin: 0;
+        background: var(--sky);
+        color: var(--ink);
+        font-family:
+          "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo,
+          sans-serif;
+        line-height: 1.85;
+      }
+      a {
+        color: var(--blue);
+      }
+      .header {
+        border-bottom: 1px solid rgba(38, 50, 144, 0.12);
+        background: #fff;
+      }
+      .header-inner,
+      .wrap {
+        width: min(920px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+      .header-inner {
+        display: flex;
+        min-height: 68px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .brand {
+        color: var(--navy);
+        font-size: 20px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+      .back-link {
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .wrap {
+        padding: 54px 0 70px;
+      }
+      .breadcrumb {
+        margin-bottom: 16px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .breadcrumb a {
+        margin-right: 8px;
+      }
+      h1 {
+        margin: 0;
+        color: var(--navy);
+        font-size: clamp(28px, 5vw, 38px);
+        line-height: 1.4;
+      }
+      .lead {
+        max-width: 760px;
+        margin: 18px 0 30px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .policy {
+        padding: 46px 54px;
+        border-top: 7px solid var(--navy);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 18px 44px rgba(38, 50, 144, 0.1);
+      }
+      .policy section + section {
+        margin-top: 42px;
+        padding-top: 38px;
+        border-top: 1px solid var(--line);
+      }
+      h2 {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin: 0 0 16px;
+        color: var(--navy);
+        font-size: 20px;
+        line-height: 1.5;
+      }
+      .number {
+        color: var(--orange);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+      p,
+      li,
+      dt,
+      dd {
+        font-size: 14px;
+      }
+      p {
+        margin: 0;
+      }
+      p + p {
+        margin-top: 12px;
+      }
+      ul {
+        margin: 12px 0 0;
+        padding-left: 1.4em;
+      }
+      li + li {
+        margin-top: 5px;
+      }
+      .operator {
+        margin: 16px 0 0;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .operator div {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+      }
+      .operator div + div {
+        border-top: 1px solid var(--line);
+      }
+      .operator dt,
+      .operator dd {
+        margin: 0;
+        padding: 12px 16px;
+      }
+      .operator dt {
+        background: var(--sky);
+        color: var(--navy);
+        font-weight: 700;
+      }
+      .date {
+        margin-top: 36px;
+        color: var(--muted);
+        font-size: 12px;
+        text-align: right;
+      }
+      .footer {
+        padding: 24px 20px;
+        background: #071b31;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+      }
+      @media (max-width: 620px) {
+        .header-inner,
+        .wrap {
+          width: min(100% - 28px, 920px);
+        }
+        .header-inner {
+          min-height: 60px;
+        }
+        .brand {
+          font-size: 17px;
+        }
+        .wrap {
+          padding: 36px 0 48px;
+        }
+        .policy {
+          padding: 30px 20px;
+        }
+        .policy section + section {
+          margin-top: 32px;
+          padding-top: 30px;
+        }
+        h2 {
+          gap: 8px;
+          font-size: 18px;
+        }
+        .operator div {
+          grid-template-columns: 1fr;
+        }
+        .operator dd {
+          padding-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">ムダトルDX</a>
+        <a class="back-link" href="index.html">トップページへ</a>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="index.html">トップ</a><span aria-hidden="true">/</span>
+        <span aria-current="page">プライバシーポリシー</span>
+      </nav>
+      <h1>プライバシーポリシー</h1>
+      <p class="lead">
+        ムダトルDXの運営者（以下「当事業者」といいます。）は、お客様の個人情報を適切に取り扱い、保護することを重要な責務と考え、以下のとおりプライバシーポリシーを定めます。
+      </p>
+
+      <article class="policy">
+        <section>
+          <h2><span class="number">01</span>個人情報</h2>
+          <p>
+            本ポリシーにおける「個人情報」とは、個人情報の保護に関する法律に定める個人情報をいい、氏名、連絡先その他の記述等により特定の個人を識別できる情報を指します。
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="number">02</span>取得する情報</h2>
+          <p>
+            当事業者は、お問い合わせ、無料相談、契約およびサービス提供に際して、次の情報を取得する場合があります。
+          </p>
+          <ul>
+            <li>氏名、会社名・屋号</li>
+            <li>メールアドレス、電話番号</li>
+            <li>相談内容その他お問い合わせフォームへ入力された情報</li>
+            <li>契約、請求およびサービス提供に必要な情報</li>
+            <li>IPアドレス、アクセス日時、端末・ブラウザ情報等のアクセスログ</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><span class="number">03</span>利用目的</h2>
+          <p>取得した情報は、次の目的で利用します。</p>
+          <ul>
+            <li>お問い合わせへの回答、無料相談および本人確認のため</li>
+            <li>サービスの提案、契約、提供、運用およびサポートのため</li>
+            <li>料金の請求その他契約上の義務を履行するため</li>
+            <li>サービスおよび当Webサイトの品質向上・改善のため</li>
+            <li>不正利用の防止、セキュリティの確保および法令遵守のため</li>
+            <li>上記の利用目的に付随する目的のため</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><span class="number">04</span>個人情報の第三者提供</h2>
+          <p>
+            当事業者は、法令に基づく場合、人の生命・身体・財産の保護に必要でご本人の同意を得ることが困難な場合、その他法令で認められる場合を除き、あらかじめご本人の同意を得ることなく個人データを第三者へ提供しません。
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="number">05</span>個人情報の取扱いの委託</h2>
+          <p>
+            当事業者は、利用目的の達成に必要な範囲で、フォーム運用、メール送信、データ保管その他の業務を外部事業者へ委託する場合があります。この場合、個人情報を適切に取り扱う委託先を選定し、必要かつ適切な監督を行います。
+          </p>
+        </section>
+
+        <section>
+          <h2>
+            <span class="number">06</span>Cookie・アクセス解析・広告効果測定
+          </h2>
+          <p>
+            当Webサイトでは、サイトの利用状況の把握、サービス改善および広告効果の測定のため、Google LLCが提供するGoogle Analytics 4およびGoogle広告のコンバージョン計測を利用する場合があります。これらのサービスでは、GoogleタグおよびCookie等の技術を使用して情報を収集し、Google LLCへ送信します。
+          </p>
+          <dl class="operator">
+            <div>
+              <dt>利用サービス</dt>
+              <dd>Google Analytics 4、Google広告コンバージョン計測</dd>
+            </div>
+            <div>
+              <dt>送信先</dt>
+              <dd>Google LLC</dd>
+            </div>
+            <div>
+              <dt>送信される情報</dt>
+              <dd>
+                閲覧ページ、参照元、アクセス日時、端末・OS・ブラウザ情報、IPアドレス、Cookie等の識別子、広告クリック識別子、ページ内での操作およびお問い合わせ完了等のイベント情報
+              </dd>
+            </div>
+            <div>
+              <dt>利用目的</dt>
+              <dd>
+                アクセス状況の分析、当Webサイトおよびサービスの改善、広告のコンバージョン測定ならびに広告配信の最適化
+              </dd>
+            </div>
+          </dl>
+          <p>
+            Googleにおける情報の取扱いについては、<a
+              href="https://policies.google.com/privacy?hl=ja"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Googleプライバシーポリシー</a
+            >および<a
+              href="https://policies.google.com/technologies/partner-sites?hl=ja"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Googleのサービスを使用するサイトやアプリから収集した情報の使用</a
+            >をご確認ください。
+          </p>
+          <p>
+            お客様は、ブラウザの設定でCookieを無効にするか、<a
+              href="https://tools.google.com/dlpage/gaoptout?hl=ja"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Google Analyticsオプトアウト アドオン</a
+            >または<a
+              href="https://myadcenter.google.com/controls"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Googleの広告設定</a
+            >を利用することで、情報収集や広告のカスタマイズを制限できます。Cookieを無効にした場合、一部の機能や計測が正しく動作しないことがあります。
+          </p>
+          <p>
+            現時点では、お問い合わせフォームに入力された氏名、メールアドレス、電話番号等をGoogleの広告計測へ送信しません。拡張コンバージョン等を導入する場合は、本ポリシーを更新し、法令およびGoogleのポリシーに従って必要な対応を行います。
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="number">07</span>安全管理措置</h2>
+          <p>
+            当事業者は、個人データの漏えい、滅失または毀損を防止するため、取扱範囲の明確化、アクセス権限の制限、認証情報の適切な管理、利用機器およびサービスのセキュリティ対策その他必要かつ適切な安全管理措置を講じます。
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="number">08</span>保存期間と削除</h2>
+          <p>
+            当事業者は、取得した情報を利用目的の達成に必要な期間または法令により保存が必要な期間に限って保管し、保存の必要がなくなった情報は適切な方法で削除または匿名化します。
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="number">09</span>開示・訂正・利用停止等</h2>
+          <p>
+            ご本人は、当事業者が保有するご自身の個人データについて、利用目的の通知、開示、訂正・追加・削除、利用停止・消去または第三者提供の停止を請求できます。ご本人であることを確認したうえで、法令に従って対応します。
+          </p>
+          <p>
+            ご請求は、当サイトのお問い合わせフォームから、請求内容を明記のうえご連絡ください。
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="number">10</span>本ポリシーの変更</h2>
+          <p>
+            当事業者は、法令の改正やサービス内容の変更等に応じて、本ポリシーを変更することがあります。重要な変更がある場合は、当Webサイト上でお知らせします。変更後の内容は、当Webサイトに掲載した時点から適用されます。
+          </p>
+        </section>
+
+        <section>
+          <h2><span class="number">11</span>お問い合わせ窓口</h2>
+          <p>
+            本ポリシー、個人情報の取扱いおよび開示等の請求に関するお問い合わせは、当サイトのお問い合わせフォームよりお願いいたします。
+          </p>
+          <dl class="operator">
+            <div>
+              <dt>サービス名</dt>
+              <dd>ムダトルDX</dd>
+            </div>
+            <div>
+              <dt>運営者情報</dt>
+              <dd>
+                <a href="law.html">特定商取引法に基づく表記</a>をご確認ください。
+              </dd>
+            </div>
+            <div>
+              <dt>お問い合わせ</dt>
+              <dd><a href="index.html#contact">お問い合わせフォーム</a></dd>
+            </div>
+          </dl>
+        </section>
+
+        <p class="date">制定日：2026年9月3日</p>
+      </article>
+    </main>
+
+    <footer class="footer">&copy; 2026 ムダトルDX</footer>
+  </body>
+</html>

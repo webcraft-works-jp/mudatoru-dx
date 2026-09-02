@@ -1620,6 +1620,30 @@
         .price-spec {
           grid-template-columns: 1fr;
         }
+        .service-grid {
+          gap: 12px;
+        }
+        .service-card {
+          display: grid;
+          min-height: 0;
+          grid-template-columns: 36px 1fr;
+          align-items: center;
+          gap: 8px 10px;
+          padding: 18px 16px;
+        }
+        .service-card .icon {
+          font-size: 30px;
+          line-height: 1;
+        }
+        .service-card h3 {
+          margin: 0;
+          font-size: 16px;
+        }
+        .service-card p {
+          grid-column: 1 / -1;
+          font-size: 12px;
+          line-height: 1.65;
+        }
         .flow {
           position: relative;
           gap: 14px;
@@ -3029,7 +3053,7 @@
           </div>
           <ul class="price-common-info">
             <li>・最低契約期間は2ヶ月〜</li>
-            <li>・月2回のMTGも無料で実施</li>
+            <li>・月2回のMTGも無料で実施（原則、土日に実施）</li>
           </ul>
           <p class="note price-common-note">
             ※大規模システム開発は別途お見積もり<br />※緊急障害対応・インフラ保守は対象外
@@ -3243,7 +3267,9 @@
         );
       }
 
-      clearPageHash();
+      window.addEventListener("load", function () {
+        window.setTimeout(clearPageHash, 0);
+      });
 
       document.querySelectorAll('a[href^="#"]').forEach(function (link) {
         link.addEventListener("click", function () {
