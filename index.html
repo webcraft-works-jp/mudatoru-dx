@@ -2059,7 +2059,7 @@
 
       @media (max-width: 620px) {
         .hero {
-          padding: 82px 0 22px;
+          padding: 64px 0 22px;
           background: #eef6ff;
         }
 
@@ -2080,7 +2080,7 @@
 
         .hero-price-bubble {
           position: relative;
-          top: 24px;
+          top: 12px;
           left: auto;
           display: table;
           min-height: 0;
@@ -3234,6 +3234,26 @@
     </footer>
 
     <script>
+      function clearPageHash() {
+        if (!window.location.hash) return;
+        history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search
+        );
+      }
+
+      clearPageHash();
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+          var target = link.getAttribute("href");
+          if (!target || target === "#") return;
+
+          window.setTimeout(clearPageHash, 0);
+        });
+      });
+
       document.querySelectorAll(".work-tab").forEach(function (tab) {
         tab.addEventListener("click", function () {
           document.querySelectorAll(".work-tab").forEach(function (t) {
