@@ -1,6 +1,30 @@
 <!doctype html>
 <html lang="ja">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18277400530"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18277400530');
+    </script>
+    <!-- Event snippet for ムダトルDX｜問い合わせ送信 conversion page -->
+    <script>
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18277400530/fsA4CN-ivO0cENL_q4tE',
+          'event_callback': callback
+        });
+        return false;
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -1381,6 +1405,14 @@
         font-weight: 700;
         font-size: 13px;
         text-align: center;
+      }      .form-status.is-error {
+        background: #fff1f0;
+        border-color: #e45447;
+        color: #a3261c;
+      }
+      .form-wrap .btn:disabled {
+        cursor: not-allowed;
+        opacity: 0.65;
       }
       .footer {
         background: #111847;
@@ -3229,14 +3261,18 @@
                   placeholder="現在お困りの業務や、改善したいことをご記入ください。"
                 ></textarea>
               </div>
-              <button class="btn" type="submit">送信する</button>
+              <button class="btn" type="submit" id="inquiry-submit">送信する</button>
               <p class="form-note">
                 送信することで<a href="privacy.html">プライバシーポリシー</a
                 >に同意したものとします。
               </p>
-              <div class="form-status" id="form-status" role="status">
-                入力内容を確認しました。実運用時は送信先URLを設定してください。
-              </div>
+              <div
+                class="form-status"
+                id="form-status"
+                role="status"
+                aria-live="polite"
+                tabindex="-1"
+              ></div>
             </form>
           </div>
         </div>
@@ -3293,16 +3329,138 @@
           document.getElementById(tab.dataset.panel).classList.add("active");
         });
       });
-      document
-        .getElementById("inquiry-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          if (!this.checkValidity()) {
-            this.reportValidity();
+      const MUDATORU_FORM_CONFIG = {
+        // GASをウェブアプリとしてデプロイ後、発行された /exec URLを設定してください。
+        gasWebAppUrl: "https://script.google.com/macros/s/AKfycbw92lQfrG5F5cbEASxSzJmU18r12zjrurAPz47jPRlketxxtRtIEJ8BJ8jlATK9TB4-/exec",
+      };
+
+      function createSubmissionId() {
+        if (window.crypto && typeof window.crypto.randomUUID === "function") {
+          return window.crypto.randomUUID();
+        }
+        return "submission-" + Date.now() + "-" + Math.random().toString(36).slice(2);
+      }
+
+      function confirmSubmission(endpoint, submissionId) {
+        return new Promise(function (resolve, reject) {
+          const callbackName = "mudatoruSubmissionCallback_" +
+            submissionId.replace(/[^a-zA-Z0-9]/g, "");
+          const script = document.createElement("script");
+          const timeoutId = window.setTimeout(function () {
+            cleanup();
+            reject(new Error("送信結果の確認がタイムアウトしました。"));
+          }, 10000);
+
+          function cleanup() {
+            window.clearTimeout(timeoutId);
+            delete window[callbackName];
+            script.remove();
+          }
+
+          window[callbackName] = function (result) {
+            cleanup();
+            if (result && result.ok === true) {
+              resolve();
+            } else {
+              reject(new Error("送信先でデータを保存できませんでした。"));
+            }
+          };
+          script.onerror = function () {
+            cleanup();
+            reject(new Error("送信結果を確認できませんでした。"));
+          };
+          script.src = endpoint + "?submissionId=" + encodeURIComponent(submissionId) +
+            "&callback=" + encodeURIComponent(callbackName) + "&_=" + Date.now();
+          document.head.appendChild(script);
+        });
+      }
+
+      async function submitInquiry(endpoint, data) {
+        const body = new URLSearchParams();
+        Object.entries(data).forEach(function (entry) {
+          body.set(entry[0], String(entry[1] == null ? "" : entry[1]));
+        });
+        await fetch(endpoint, {
+          method: "POST",
+          mode: "no-cors",
+          credentials: "omit",
+          cache: "no-store",
+          body: body,
+        });
+        await confirmSubmission(endpoint, data.submissionId);
+      }
+
+      (function initializeInquiryForm() {
+        const form = document.getElementById("inquiry-form");
+        const submitButton = document.getElementById("inquiry-submit");
+        const status = document.getElementById("form-status");
+        const endpoint = MUDATORU_FORM_CONFIG.gasWebAppUrl.trim();
+        let isSubmitting = false;
+        let submissionSucceeded = false;
+        let conversionReported = false;
+        let pendingSubmissionId = "";
+
+        if (!endpoint) {
+          submitButton.disabled = true;
+          submitButton.title = "送信先の設定中です";
+        }
+
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+          if (isSubmitting || submissionSucceeded) return;
+
+          status.style.display = "none";
+          status.classList.remove("is-error");
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
             return;
           }
-          document.getElementById("form-status").style.display = "block";
+          if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(endpoint)) {
+            status.textContent = "現在、送信先を設定中です。恐れ入りますが、お電話でお問い合わせください。";
+            status.classList.add("is-error");
+            status.style.display = "block";
+            return;
+          }
+
+          isSubmitting = true;
+          form.setAttribute("aria-busy", "true");
+          submitButton.disabled = true;
+          submitButton.textContent = "送信中…";
+
+          const data = Object.fromEntries(new FormData(form).entries());
+          pendingSubmissionId = pendingSubmissionId || createSubmissionId();
+          data.submissionId = pendingSubmissionId;
+          data.source = "ムダトルDX LP";
+          data.consent = "true";
+
+          try {
+            await submitInquiry(endpoint, data);
+            submissionSucceeded = true;
+            form.reset();
+            status.textContent = "お問い合わせを送信しました。内容を確認のうえ、ご連絡いたします。";
+            status.style.display = "block";
+            submitButton.textContent = "送信完了";
+
+            if (!conversionReported) {
+              conversionReported = true;
+              gtag_report_conversion();
+            }
+            status.focus({ preventScroll: true });
+          } catch (error) {
+            console.error("Inquiry form submission failed", error);
+            status.textContent = "送信できませんでした。時間をおいて、もう一度お試しください。";
+            status.classList.add("is-error");
+            status.style.display = "block";
+            submitButton.disabled = false;
+            submitButton.textContent = "送信する";
+            status.focus({ preventScroll: true });
+          } finally {
+            isSubmitting = false;
+            form.removeAttribute("aria-busy");
+          }
         });
+      })();
     </script>
   </body>
 </html>
