@@ -1092,6 +1092,123 @@
         color: var(--orange);
         text-align: right;
       }
+      .progress-example-section {
+        background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%);
+      }
+      .progress-example-section .section-head {
+        margin-bottom: 28px;
+      }
+      .progress-example-card {
+        width: min(960px, 100%);
+        margin: 0 auto;
+        padding: 34px 34px 30px;
+        border: 1px solid #cfd7e8;
+        border-radius: 24px;
+        background: #fff;
+        box-shadow: 0 14px 34px rgba(38, 50, 144, 0.08);
+      }
+      .progress-example-lead {
+        margin-bottom: 24px;
+        color: var(--ink);
+        font-size: clamp(17px, 2.5vw, 21px);
+        font-weight: 900;
+        line-height: 1.6;
+        text-align: center;
+      }
+      .progress-example-lead span {
+        display: block;
+        color: var(--navy);
+        font-size: 14px;
+      }
+      .progress-months,
+      .progress-row {
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 12px;
+      }
+      .progress-months {
+        margin-bottom: 4px;
+      }
+      .progress-months-track {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+      }
+      .progress-month {
+        display: grid;
+        min-height: 48px;
+        place-items: center;
+        padding: 8px 24px;
+        background: #2e409b;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 900;
+        clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%, 18px 50%);
+      }
+      .progress-month:first-child {
+        clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 50%, calc(100% - 18px) 100%, 0 100%);
+      }
+      .progress-row {
+        align-items: center;
+      }
+      .progress-label {
+        display: grid;
+        min-height: 58px;
+        place-items: center;
+        padding: 10px 14px;
+
+        background: #dbe7f4;
+        color: var(--navy);
+        font-size: 16px;
+        font-weight: 900;
+        line-height: 1.4;
+        text-align: center;
+      }
+      .progress-track {
+        position: relative;
+        height: 64px;
+        background: linear-gradient(to right, #f5f6f9 0 49.7%, #fff 49.7% 50.3%, #f5f6f9 50.3% 100%);
+      }
+      .progress-task {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        display: grid;
+        min-height: 46px;
+        place-items: center;
+        padding: 9px 16px;
+        border: 1px solid #b9c7b4;
+        border-radius: 8px;
+        background: #e5f0de;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: center;
+        transform: translateY(-50%);
+      }
+      .progress-task--discover {
+        left: 1%;
+        width: 47%;
+      }
+      .progress-task--design {
+        left: 25%;
+        width: 50%;
+      }
+      .progress-task--build {
+        left: 52%;
+        width: 47%;
+      }
+      .progress-task-period {
+        display: none;
+      }
+      .progress-example-note {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.7;
+        text-align: center;
+      }
       .price-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 430px));
@@ -1751,6 +1868,57 @@
           grid-template-columns: 1fr 78px;
           padding: 12px 14px;
           font-size: 13px;
+        }
+        .progress-example-card {
+          padding: 24px 0 22px;
+          overflow: hidden;
+          border-radius: 18px;
+        }
+        .progress-example-lead {
+          margin-bottom: 18px;
+          padding: 0 16px;
+          font-size: 17px;
+        }
+        .progress-scroll {
+          width: 100%;
+          overflow-x: auto;
+          padding: 0 16px 12px;
+          overscroll-behavior-inline: contain;
+          scrollbar-color: #9aa7c8 #eef1f7;
+          scrollbar-width: thin;
+          -webkit-overflow-scrolling: touch;
+        }
+        .progress-scroll:focus-visible {
+          outline: 3px solid var(--yellow);
+          outline-offset: -3px;
+        }
+        .progress-scroll::-webkit-scrollbar {
+          height: 7px;
+        }
+        .progress-scroll::-webkit-scrollbar-track {
+          border-radius: 99px;
+          background: #eef1f7;
+        }
+        .progress-scroll::-webkit-scrollbar-thumb {
+          border-radius: 99px;
+          background: #9aa7c8;
+        }
+        .progress-months,
+        .progress-row {
+          width: 820px;
+          grid-template-columns: 180px 628px;
+        }
+        .progress-month {
+          min-height: 44px;
+          padding: 7px 18px;
+          font-size: 15px;
+        }
+        .progress-label {
+          font-size: 15px;
+        }
+        .progress-example-note {
+          padding: 0 16px;
+          text-align: left;
         }
         .price-grid {
           grid-template-columns: 1fr;
@@ -3048,6 +3216,44 @@
         </div>
       </section>
 
+      <section class="section progress-example-section" aria-labelledby="progress-example-title">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title" id="progress-example-title">進行例</h2>
+          </div>
+          <div class="progress-example-card">
+            <p class="progress-example-lead">事務作業のムダを減らしたい場合<span>2か月間の一例</span></p>
+            <div class="progress-scroll" role="region" aria-label="2か月間の進行例" tabindex="0">
+            <div class="progress-months" aria-hidden="true">
+              <span></span>
+              <div class="progress-months-track">
+                <span class="progress-month">1か月目</span>
+                <span class="progress-month">2か月目</span>
+              </div>
+            </div>
+            <div class="progress-row">
+              <h3 class="progress-label">業務の見える化</h3>
+              <div class="progress-track">
+                <p class="progress-task progress-task--discover"><span class="progress-task-period">1か月目</span>ヒアリング・業務フロー作成</p>
+              </div>
+            </div>
+            <div class="progress-row">
+              <h3 class="progress-label">改善方法の設計</h3>
+              <div class="progress-track">
+                <p class="progress-task progress-task--design"><span class="progress-task-period">1〜2か月目</span>改善対象の選定・改善案の作成</p>
+              </div>
+            </div>
+            <div class="progress-row">
+              <h3 class="progress-label">仕組みの導入</h3>
+              <div class="progress-track">
+                <p class="progress-task progress-task--build"><span class="progress-task-period">2か月目</span>自動化・テスト運用・操作説明</p>
+              </div>
+            </div>
+            </div>
+            <p class="progress-example-note">※業務内容や改善規模に応じて、実施期間・内容は異なります。</p>
+          </div>
+        </div>
+      </section>
       <section class="section section--blue" id="price">
         <div class="container">
           <div class="section-head">
